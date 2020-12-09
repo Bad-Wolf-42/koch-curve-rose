@@ -13,9 +13,12 @@ class Segment {
     this.magnitude = length;
     this.startPoint = point;
     this.endPoint = calculateEndpoint(this.startPoint, this.theta, this.magnitude);
+    this.color = Math.random() * 360;
+    this.altColor = this.startPoint[0] / canvas.width * 360;
+    this.alt2Color = this.startPoint[0] - 75/ 300 * 360;
   }
   draw() {
-    ctx.strokeStyle = 'white';
+    ctx.strokeStyle = `hsla(${this.alt2Color}, 100%, 50%, 1)`; //'white'
     ctx.beginPath();
     ctx.moveTo(...this.startPoint);
     ctx.lineTo(...this.endPoint);
